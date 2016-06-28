@@ -3,7 +3,7 @@ package model.data;
 import model.personnage.Personnage;
 
 public class Arme extends Objet {
-
+	
 	@Override
 	public void applique() {
 		// TODO Auto-generated method stub
