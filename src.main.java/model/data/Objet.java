@@ -1,5 +1,8 @@
 package model.data;
 
-public class Objet {
+import model.personnage.Personnage;
 
+public abstract class Objet {
+	public abstract void applique(); 
+	public abstract void recoit(Personnage p);
 }
