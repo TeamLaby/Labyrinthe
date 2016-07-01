@@ -24,4 +24,5 @@ public class Personnage {
 	public List<Objet> getObjets() {
 		return objets;
 	}
+
 }
