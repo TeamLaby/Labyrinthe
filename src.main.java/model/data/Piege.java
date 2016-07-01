@@ -16,4 +16,10 @@ public class Piege extends Objet {
 		
 	}
 
+	@Override
+	public void applique(Personnage p) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

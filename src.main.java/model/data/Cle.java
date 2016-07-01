@@ -15,4 +15,10 @@ public class Cle extends Objet {
 
 	}
 
+	@Override
+	public void applique(Personnage p) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

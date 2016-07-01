@@ -31,12 +31,18 @@ public class Porte extends Objet {
 	}
 
 	private Case determinerCaseSuivante() {
-		final Case caseSuivante = new Case();
+		// final Case caseSuivante = new Case();
 
-		return caseSuivante;
+		return null;
 	}
 	private void deplaceLeJoueur(Case caseSuivante) {
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void applique(Personnage p) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

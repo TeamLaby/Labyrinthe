@@ -13,8 +13,8 @@ public class Personnage {
 	private final List<Objet> objets;
 
 	public Personnage() {
-		objets = Lists.newArrayList();
-		vie = new Vie();
+		this.objets = Lists.newArrayList();
+		this.vie = new Vie();
 	}
 
 	public Vie getVie() {
