@@ -17,7 +17,7 @@ public class Armure extends Objet {
 	@Override
 	public void applique(Personnage p) {
 		// TODO Auto-generated method stub
-
+		p.getVie();
 	}
 
 	@Override

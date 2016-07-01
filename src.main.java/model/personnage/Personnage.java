@@ -14,7 +14,7 @@ public class Personnage {
 
 	public Personnage() {
 		this.objets = Lists.newArrayList();
-		this.vie = new Vie();
+		this.vie = new Vie(100);
 	}
 
 	public Vie getVie() {

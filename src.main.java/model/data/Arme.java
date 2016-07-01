@@ -2,16 +2,17 @@ package model.data;
 
 import java.util.List;
 
+import model.enumeration.EnumTypeArme;
 import model.personnage.Personnage;
 
 public class Arme extends Objet {
 
-	private final String nom;
+	private final EnumTypeArme nomArme;
 	private final int degat;
 
-	public Arme() {
-		this.nom = "épee";
-		this.degat = 10;
+	public Arme(EnumTypeArme arme) {
+		this.nomArme = arme;
+		this.degat = arme.getDegats();
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class Arme extends Objet {
 		boolean equipe = false;
 
 		for (final Objet o : listeObjet) {
-			if (o.getNom().equals(this.nom)) {
+			if (o.getNom().equals(this.nomArme)) {
 				equipe = true;
 				break;
 			}
@@ -42,6 +43,6 @@ public class Arme extends Objet {
 	@Override
 	public void applique(Personnage p) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
