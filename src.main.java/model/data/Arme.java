@@ -22,12 +22,12 @@ public class Arme extends Objet {
 
 	@Override
 	public void recoit(Personnage p) {
-		if (!isJoueurEquipe(p.getObjets())) {
+		if (!isEquipe(p.getObjets())) {
 			p.getObjets().add(this);
 		}
 	}
 
-	private boolean isJoueurEquipe(List<Objet> listeObjet) {
+	private boolean isEquipe(List<Objet> listeObjet) {
 		boolean equipe = false;
 
 		for (final Objet o : listeObjet) {
@@ -37,5 +37,11 @@ public class Arme extends Objet {
 			}
 		}
 		return equipe;
+	}
+
+	@Override
+	public void applique(Personnage p) {
+		// TODO Auto-generated method stub
+		
 	}
 }
