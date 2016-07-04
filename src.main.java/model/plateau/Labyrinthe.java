@@ -3,7 +3,9 @@ package model.plateau;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import model.data.Cle;
 import model.enumeration.EnumTypeObjet;
+import model.enumeration.EnumTypeSalle;
 import controler.Main;
 
 public class Labyrinthe {
@@ -29,13 +31,13 @@ public class Labyrinthe {
 		String[] coord = lignes[1].split(" ");
 		final int xentree = Integer.parseInt(coord[0]);
 		final int yentree = Integer.parseInt(coord[1]);
-		entree = new Standard(xentree, yentree, new Color(Color.GREEN.getRGB()), f);
+		entree = new Standard(xentree, yentree, new Color(Color.GREEN.getRGB()), f, null, EnumTypeSalle.STANDARD);
 		salles.add(entree);
 		// sortie
 		coord = lignes[2].split(" ");
 		final int xsortie = Integer.parseInt(coord[0]);
 		final int ysortie = Integer.parseInt(coord[1]);
-		sortie = new Standard(xsortie, ysortie, new Color(Color.RED.getRGB()), f);
+		sortie = new Standard(xsortie, ysortie, new Color(Color.RED.getRGB()), f, null, EnumTypeSalle.STANDARD);
 		salles.add(sortie);
 		// autres salles
 		for (int i = 3; i < lignes.length; i++) {
@@ -45,11 +47,19 @@ public class Labyrinthe {
 			Salle s = null;
 			if (coordonnees.length > 2 && coordonnees[2] != null) {
 				final String initialeObjet = coordonnees[2];
-				if (initialeObjet.equals(EnumTypeObjet.CLE.getInitiale())) {
-					s = new Porte(x, y, new Color(Color.ORANGE.getRGB()), f);
+				if (initialeObjet.equals(EnumTypeObjet.PORTE.getInitiale())) {
+					s = new Porte(x, y, new Color(Color.ORANGE.getRGB()), f, new Cle(), EnumTypeSalle.PORTE);
+				} else if (initialeObjet.equals(EnumTypeObjet.CLE.getInitiale())) {
+					for (final Salle p : salles) {
+						if (p.getType().equals(EnumTypeSalle.PORTE)) {
+							s = new Standard(x, y, new Color(Color.PINK.getRGB()), f, p.getObjet(), EnumTypeSalle.STANDARD);
+							break;
+						}
+					}
+
 				}
 			} else {
-				s = new Standard(x, y, new Color(Color.WHITE.getRGB()), f);
+				s = new Standard(x, y, new Color(Color.WHITE.getRGB()), f, null, EnumTypeSalle.STANDARD);
 			}
 
 			salles.add(s);

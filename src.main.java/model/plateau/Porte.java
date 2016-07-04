@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import model.data.Cle;
 import model.data.Objet;
+import model.enumeration.EnumTypeSalle;
 import model.personnage.Personnage;
 import controler.Main;
 
@@ -11,8 +12,8 @@ public class Porte extends Salle implements Case {
 
 	private final Cle cle;
 
-	public Porte(int x, int y, Color color, Main f) {
-		super(x, y, color, f);
+	public Porte(int x, int y, Color color, Main f, Objet o, EnumTypeSalle type) {
+		super(x, y, color, f, o, type);
 		cle = new Cle();
 	}
 
@@ -25,16 +26,17 @@ public class Porte extends Salle implements Case {
 			// si le heros possède la cle
 			if (o.equals(getCle())) {
 				p.setPeutSeDeplacer(true);
+				applique(p);
 				break;
 			}
 		}
-		applique(p);
+
 	}
 
 	@Override
 	public void applique(Personnage p) {
 		// TODO Auto-generated method stub
-
+		System.out.println("ouvre la porte");
 	}
 
 	public Cle getCle() {

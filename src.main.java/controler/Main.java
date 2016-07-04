@@ -61,10 +61,10 @@ public class Main extends PApplet {
 		final int hauteurLaby = Integer.parseInt(dimension[1]);
 		for (int i = 0; i < largeurLaby; i++) {
 			for (int j = 0; j < hauteurLaby; j++) {
-				final Salle z = new Standard(i, j, new Color(0), this); // Salle de coordonnees i,j en noir
+				final Salle z = new Standard(i, j, new Color(0), this, null, null); // Salle de coordonnees i,j en noir
 				if (z.distance(heros.getSalleCourante()) > 10) {
 					z.dessiner();
-					z.recoit(heros);
+					// z.recoit(heros);
 				}
 			}
 		}

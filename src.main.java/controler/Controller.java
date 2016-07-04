@@ -18,30 +18,31 @@ public class Controller {
 
 	public void controleur() {
 
-		if (f.key == 'm') {
-			heros.aller(laby.sortie);
-		}
-		final Salle position = heros.getSalleCourante();
-		final int x = position.getX();
-		final int y = position.getY();
+		if (f.keyPressed) {
+			if (f.key == 'm') {
+				heros.aller(laby.sortie);
+			}
+			final Salle position = heros.getSalleCourante();
+			final int x = position.getX();
+			final int y = position.getY();
 
-		// mise a jour de peutSe Deplacer pour le heros
-		heros.setPeutSeDeplacer((heros.getXpix() == heros.getXpixCible()) && (heros.getYpix() == heros.getYpixCible()));
-		// si le heros peut se deplacer, on gère son déplacement
-		System.out.println("peut se déplacer > " + heros.isPeutSeDeplacer());
-		if (heros.isPeutSeDeplacer()) {
-			for (final Salle s : laby.getSalles()) { // pour toutes les salles s du labyrinthe
-				if (s.adjacente(position)) {
-					// s.recoit(heros);
-					if (this.isPeutSeDeplacer(x, y, s) /* && heros.isPeutSeDeplacer() */) {
-						heros.aller(s);
-						break;
+			// mise a jour de peutSe Deplacer pour le heros
+			heros.setPeutSeDeplacer((heros.getXpix() == heros.getXpixCible()) && (heros.getYpix() == heros.getYpixCible()));
+			// si le heros peut se deplacer, on gère son déplacement
+			if (heros.isPeutSeDeplacer()) {
+				for (final Salle s : laby.getSalles()) { // pour toutes les salles s du labyrinthe
+					if (s.adjacente(position)) {
+						s.recoit(heros);
+						if (this.isPeutSeDeplacer(x, y, s) && heros.isPeutSeDeplacer()) {
+							heros.aller(s);
+							break;
+						}
 					}
-					break;
 				}
 			}
 		}
 	}
+
 	private Boolean isPeutSeDeplacer(final int x, final int y, final Salle s) {
 		Boolean deplacer = false;
 		// s est une salle adjacente a la position

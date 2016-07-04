@@ -2,6 +2,8 @@ package model.plateau;
 
 import java.awt.Color;
 
+import model.data.Objet;
+import model.enumeration.EnumTypeSalle;
 import model.personnage.Personnage;
 import controler.Main;
 
@@ -10,12 +12,16 @@ public abstract class Salle implements Case {
 	private final int x, y;
 	private final Color color;
 	private final Main f;
+	private Objet objet;
+	private final EnumTypeSalle type;
 
-	public Salle(int x, int y, Color color, Main f) {
+	public Salle(int x, int y, Color color, Main f, Objet objet, EnumTypeSalle type) {
 		this.x = x;
 		this.y = y;
 		this.color = color;
 		this.f = f;
+		this.objet = objet;
+		this.type = type;
 	}
 
 	public abstract void recoit(Personnage p);
@@ -67,6 +73,21 @@ public abstract class Salle implements Case {
 
 	public Color getColor() {
 		return color;
+	}
+
+	public Objet getObjet() {
+		return objet;
+	}
+
+	public final void setObjet(Objet objet) {
+		this.objet = objet;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public EnumTypeSalle getType() {
+		return type;
 	}
 
 }
