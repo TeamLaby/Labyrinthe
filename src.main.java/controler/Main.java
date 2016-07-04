@@ -5,6 +5,7 @@ import java.awt.Color;
 import model.personnage.Personnage;
 import model.plateau.Labyrinthe;
 import model.plateau.Salle;
+import model.plateau.Standard;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -25,7 +26,7 @@ public class Main extends PApplet {
 	public void setup() {
 
 		// recuperation des donnees du fichier
-		lignes = loadStrings("img/laby.txt");
+		lignes = loadStrings("img/level2.txt");
 		final String[] dimension = split(lignes[0], " ");
 		final int x = Integer.parseInt(dimension[0]);
 		final int y = Integer.parseInt(dimension[1]);
@@ -60,9 +61,10 @@ public class Main extends PApplet {
 		final int hauteurLaby = Integer.parseInt(dimension[1]);
 		for (int i = 0; i < largeurLaby; i++) {
 			for (int j = 0; j < hauteurLaby; j++) {
-				final Salle z = new Salle(i, j, new Color(0), this); // Salle de coordonnees i,j en noir
+				final Salle z = new Standard(i, j, new Color(0), this); // Salle de coordonnees i,j en noir
 				if (z.distance(heros.getSalleCourante()) > 10) {
 					z.dessiner();
+					z.recoit(heros);
 				}
 			}
 		}

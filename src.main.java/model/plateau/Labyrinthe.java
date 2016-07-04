@@ -3,6 +3,7 @@ package model.plateau;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import model.enumeration.EnumTypeObjet;
 import controler.Main;
 
 public class Labyrinthe {
@@ -28,20 +29,29 @@ public class Labyrinthe {
 		String[] coord = lignes[1].split(" ");
 		final int xentree = Integer.parseInt(coord[0]);
 		final int yentree = Integer.parseInt(coord[1]);
-		entree = new Salle(xentree, yentree, new Color(Color.GREEN.getRGB()), f);
+		entree = new Standard(xentree, yentree, new Color(Color.GREEN.getRGB()), f);
 		salles.add(entree);
 		// sortie
 		coord = lignes[2].split(" ");
 		final int xsortie = Integer.parseInt(coord[0]);
 		final int ysortie = Integer.parseInt(coord[1]);
-		sortie = new Salle(xsortie, ysortie, new Color(Color.RED.getRGB()), f);
+		sortie = new Standard(xsortie, ysortie, new Color(Color.RED.getRGB()), f);
 		salles.add(sortie);
 		// autres salles
 		for (int i = 3; i < lignes.length; i++) {
 			final String[] coordonnees = lignes[i].split(" ");
 			final int x = Integer.parseInt(coordonnees[0]);
 			final int y = Integer.parseInt(coordonnees[1]);
-			final Salle s = new Salle(x, y, new Color(Color.WHITE.getRGB()), f);
+			Salle s = null;
+			if (coordonnees.length > 2 && coordonnees[2] != null) {
+				final String initialeObjet = coordonnees[2];
+				if (initialeObjet.equals(EnumTypeObjet.CLE.getInitiale())) {
+					s = new Porte(x, y, new Color(Color.ORANGE.getRGB()), f);
+				}
+			} else {
+				s = new Standard(x, y, new Color(Color.WHITE.getRGB()), f);
+			}
+
 			salles.add(s);
 		}
 

@@ -2,9 +2,10 @@ package model.plateau;
 
 import java.awt.Color;
 
+import model.personnage.Personnage;
 import controler.Main;
 
-public class Salle {
+public abstract class Salle implements Case {
 
 	private final int x, y;
 	private final Color color;
@@ -17,6 +18,9 @@ public class Salle {
 		this.f = f;
 	}
 
+	public abstract void recoit(Personnage p);
+	public abstract void applique(Personnage p);
+
 	public void dessiner() {
 		f.fill(color.getRGB()); // pinceau: couleur de la salle
 		f.rect(Main.getBordure() + (x * Main.getTaille()), Main.getBordure() + (y * Main.getTaille()), Main.getTaille(), Main.getTaille());
@@ -28,7 +32,7 @@ public class Salle {
 
 	public void dessinerEclairee(float distance) {
 		if (distance <= 10) {
-			dessiner();
+			this.dessiner();
 		}
 	}
 
