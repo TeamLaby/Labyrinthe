@@ -8,13 +8,6 @@ public class Piege extends Objet {
 		super(nom);
 	}
 
-	@Override
-	public void applique() {
-		// TODO Auto-generated method stub
-
-	}
-
-
 	public void recoit(Personnage p) {
 		// TODO Auto-generated method stub
 

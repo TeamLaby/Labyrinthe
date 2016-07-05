@@ -9,15 +9,8 @@ public class Cle extends Objet {
 		super(EnumTypeObjet.CLE.toString());
 	}
 
-	@Override
-	public void applique() {
-		// TODO Auto-generated method stub
-
-	}
-
-
 	public void recoit(Personnage p) {
-		
+
 	}
 
 	@Override

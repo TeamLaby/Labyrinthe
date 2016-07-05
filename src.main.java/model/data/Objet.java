@@ -8,7 +8,7 @@ public abstract class Objet {
 
 	public Objet(String nom) {
 		this.nom = nom;
-	} 
+	}
 
 	public abstract void applique(Personnage p);
 

@@ -17,10 +17,9 @@ public class Arme extends Objet {
 	}
 
 	@Override
-	public void recoit(Personnage p) {
-		if (!isEquipe(p.getObjets())) {
-			p.getObjets().add(this);
-		}
+	public void applique(Personnage p) {
+		// TODO Auto-generated method stub
+
 	}
 
 	private boolean isEquipe(List<Objet> listeObjet) {

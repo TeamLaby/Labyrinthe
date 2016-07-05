@@ -19,14 +19,6 @@ public class Armure extends Objet {
 		p.getVie();
 	}
 
-	@Override
-	public void recoit(Personnage p) {
-		if (!isEquipe(p.getObjets())) {
-			p.getObjets().add(this);
-			applique(p);
-		}
-	}
-
 	private boolean isEquipe(List<Objet> listeObjet) {
 		boolean equipe = false;
 
