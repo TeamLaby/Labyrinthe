@@ -14,13 +14,15 @@ public class Armure extends Objet {
 		this.nom = typeArmure.toString();
 		this.resistance = typeArmure.getResistance();
 	}
+	
 	@Override
 	public void applique(Personnage p) {
-		// TODO Auto-generated method stub
+
 		p.getVie();
+		
 	}
 
-	@Override
+
 	public void recoit(Personnage p) {
 		if (!isEquipe(p.getObjets())) {
 			p.getObjets().add(this);

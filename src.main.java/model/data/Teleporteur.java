@@ -10,7 +10,7 @@ public class Teleporteur extends Objet {
 		
 	}
 
-	@Override
+
 	public void recoit(Personnage p) {
 		// TODO Auto-generated method stub
 		

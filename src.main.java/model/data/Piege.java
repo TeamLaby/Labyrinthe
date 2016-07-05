@@ -10,7 +10,7 @@ public class Piege extends Objet {
 		
 	}
 
-	@Override
+
 	public void recoit(Personnage p) {
 		// TODO Auto-generated method stub
 		

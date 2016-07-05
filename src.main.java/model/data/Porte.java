@@ -17,7 +17,7 @@ public class Porte extends Objet {
 		deplaceLeJoueur(caseSuivante);
 	}
 
-	@Override
+
 	public void recoit(Personnage p) {
 
 		// parcours la liste des objets du joueur

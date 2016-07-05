@@ -16,16 +16,17 @@ public class Arme extends Objet {
 	}
 
 	@Override
-	public void applique() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void recoit(Personnage p) {
+	public void applique(Personnage p) {
+		
 		if (!isEquipe(p.getObjets())) {
 			p.getObjets().add(this);
 		}
+
+	}
+
+
+	public void recoit() {
+
 	}
 
 	private boolean isEquipe(List<Objet> listeObjet) {
@@ -41,8 +42,10 @@ public class Arme extends Objet {
 	}
 
 	@Override
-	public void applique(Personnage p) {
+	public void applique() {
 		// TODO Auto-generated method stub
-
+		
 	}
+
+
 }
