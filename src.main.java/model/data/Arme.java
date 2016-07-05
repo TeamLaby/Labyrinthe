@@ -35,9 +35,4 @@ public class Arme extends Objet {
 		return equipe;
 	}
 
-	@Override
-	public void applique(Personnage p) {
-		// TODO Auto-generated method stub
-
-	}
 }
