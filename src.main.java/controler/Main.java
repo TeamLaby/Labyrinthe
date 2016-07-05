@@ -64,12 +64,14 @@ public class Main extends PApplet {
 				final Salle z = new Standard(i, j, new Color(0), this, null, null); // Salle de coordonnees i,j en noir
 				if (z.distance(heros.getSalleCourante()) > 10) {
 					z.dessiner();
-					// z.recoit(heros);
 				}
 			}
 		}
-		laby.dessiner(heros.getSalleCourante());
+		laby.dessiner(heros.getSalleCourante(), heros);
 		heros.dessiner(this);
+		if (heros.getSalleCourante().getObjet() != null) {
+			heros.getSalleCourante().recoit(heros);
+		}
 
 	}
 

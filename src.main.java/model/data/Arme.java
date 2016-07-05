@@ -11,14 +11,9 @@ public class Arme extends Objet {
 	private final int degat;
 
 	public Arme(EnumTypeArme arme) {
+		super(arme.toString());
 		this.nomArme = arme;
 		this.degat = arme.getDegats();
-	}
-
-	@Override
-	public void applique() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

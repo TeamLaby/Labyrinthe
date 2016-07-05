@@ -1,7 +1,7 @@
 package model.enumeration;
 
 public enum EnumTypeObjet {
-	CLE("C"), MONSTRE("M"), PORTE("P"), ARME("A"), ARMURE("D");
+	CLE("C"), MONSTRE("M"), PORTE("P"), ARME("A"), ARMURE("D"), TELEPORTEUR("T");
 
 	private String initiale;
 

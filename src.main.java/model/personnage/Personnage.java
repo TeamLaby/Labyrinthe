@@ -68,6 +68,10 @@ public class Personnage {
 		return salleCourante;
 	}
 
+	public final void setSalleCourante(Salle salleCourante) {
+		this.salleCourante = salleCourante;
+	}
+
 	public final void setPeutSeDeplacer(boolean peutSeDeplacer) {
 		this.peutSeDeplacer = peutSeDeplacer;
 	}

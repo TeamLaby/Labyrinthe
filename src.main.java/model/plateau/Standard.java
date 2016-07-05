@@ -16,8 +16,15 @@ public class Standard extends Salle implements Case {
 	@Override
 	public void recoit(Personnage p) {
 		p.setPeutSeDeplacer(true);
+		if (getObjet() != null) {
+			p.getObjets().add(getObjet());
+			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + getObjet().getNom() + " !!!!!!!!!!!!!!!!!!!!!!!!!!");
+			this.setObjet(null);
+			final int x = p.getSalleCourante().getX();
+			final int y = p.getSalleCourante().getY();
+			p.getSalleCourante().setColor(Color.WHITE);
+		}
 	}
-
 	@Override
 	public void applique(Personnage p) {
 		// TODO Auto-generated method stub

@@ -7,13 +7,13 @@ import model.personnage.Personnage;
 
 public class Armure extends Objet {
 
-	private final String nom;
 	private final int resistance;
 
 	public Armure(EnumTypeArmure typeArmure) {
-		this.nom = typeArmure.toString();
+		super(typeArmure.toString());
 		this.resistance = typeArmure.getResistance();
 	}
+
 	@Override
 	public void applique(Personnage p) {
 		// TODO Auto-generated method stub
@@ -32,7 +32,7 @@ public class Armure extends Objet {
 		boolean equipe = false;
 
 		for (final Objet o : listeObjet) {
-			if (o.getNom().equals(this.nom)) {
+			if (o.getNom().equals(this.getNom())) {
 				equipe = true;
 				break;
 			}

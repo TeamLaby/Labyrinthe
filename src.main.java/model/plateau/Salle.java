@@ -10,8 +10,8 @@ import controler.Main;
 public abstract class Salle implements Case {
 
 	private final int x, y;
-	private final Color color;
-	private final Main f;
+	private Color color;
+	protected final Main f;
 	private Objet objet;
 	private final EnumTypeSalle type;
 
@@ -73,6 +73,10 @@ public abstract class Salle implements Case {
 
 	public Color getColor() {
 		return color;
+	}
+
+	public final void setColor(Color color) {
+		this.color = color;
 	}
 
 	public Objet getObjet() {
